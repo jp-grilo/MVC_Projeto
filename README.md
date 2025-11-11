@@ -48,41 +48,6 @@ aspnetcore-mvc-identity-postgres
 └── README.md
 ```
 
-## Passo a Passo para Criar o Projeto
-
-1. **Criar a Estrutura do Projeto**
-   - No terminal, navegue até o diretório desejado e crie a estrutura do projeto:
-     ```
-     mkdir -p aspnetcore-mvc-identity-postgres/src/WebApp
-     cd aspnetcore-mvc-identity-postgres/src/WebApp
-     dotnet new mvc -n WebApp
-     ```
-
-2. **Adicionar Pacotes Necessários**
-   - Adicione os pacotes do Entity Framework Core e do PostgreSQL:
-     ```
-     dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
-     dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
-     ```
-
-3. **Criar o `ApplicationDbContext`**
-   - Crie o arquivo `ApplicationDbContext.cs` em `src/WebApp/Data`.
-
-4. **Configurar o `Program.cs`**
-   - Altere o `Program.cs` para registrar o DbContext e o Identity.
-
-5. **Configurar o `appsettings.json`**
-   - Adicione a string de conexão ao `appsettings.json`.
-
-6. **Criar o `Dockerfile`**
-   - Crie o `Dockerfile` em `src/WebApp`.
-
-7. **Criar o `docker-compose.yml`**
-   - Crie o `docker-compose.yml` na raiz do projeto.
-
-8. **Criar o `init-db.sql`**
-   - Crie o arquivo `init-db.sql` em `scripts` para inicializar o banco de dados.
-
 ## Comandos para Executar
 
 - Para restaurar as dependências:
@@ -104,16 +69,3 @@ aspnetcore-mvc-identity-postgres
   ```
   dotnet run
   ```
-
-## Problemas Comuns
-
-- Se o Docker Desktop não estiver rodando, inicie-o.
-- Se a porta 5000 estiver ocupada, altere a porta no `docker-compose.yml`.
-- Se o volume já estiver inicializado, você pode removê-lo com:
-  ```
-  docker volume rm aspnetcore-mvc-identity-postgres_pgdata
-  ```
-
-## Contribuições
-
-Sinta-se à vontade para contribuir com melhorias ou correções.
