@@ -44,14 +44,14 @@ using (var scope = app.Services.CreateScope())
     catch (Exception ex)
     {
         var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, \"An error occurred while migrating or seeding the database.\");
+        logger.LogError(ex, "An error occurred while migrating or seeding the database.");
         throw;
     }
 }
 
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler(\"/Home/Error\");
+    app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
 
@@ -63,8 +63,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: \"default\",
-    pattern: \"{controller=Home}/{action=Index}/{id?}\");
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.Run();
